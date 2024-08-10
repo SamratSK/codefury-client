@@ -1,5 +1,9 @@
 @use "./vars" as vars;
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   background-color: vars.$clr-bg;
   color: vars.$clr-fg;
