@@ -1,0 +1,9 @@
+@use "./vars" as vars;
+
+:root {
+  background-color: vars.$clr-bg;
+  color: vars.$clr-fg;
+  
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
