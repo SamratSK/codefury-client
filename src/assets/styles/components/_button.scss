@@ -1,0 +1,15 @@
+@use "../vars" as vars;
+
+.btn {
+  border: none;
+  font: inherit;
+  padding: 0.75rem 2.5rem;
+
+  background-color: vars.$clr-primary;
+  color: #fff;
+
+  &--primary {
+    background-color: vars.$clr-primary;
+    color: #fff;
+  }
+}

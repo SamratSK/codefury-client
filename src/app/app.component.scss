@@ -1,6 +1,26 @@
+@use "../assets/styles/vars" as vars;
+
 :host {
   flex: 1;
 
   display: grid;
   grid-template-rows: max-content 1fr;
+}
+
+nav,
+.header-spacer {
+  height: vars.$header-height;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  justify-content: space-between;
+}
+
+main {
+  padding: 1rem;
 }
