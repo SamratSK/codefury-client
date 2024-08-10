@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, NgZone, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
 import { DisasterService } from '../../services/disaster.service';
@@ -24,28 +24,43 @@ export class MapComponent implements AfterViewInit {
 
   constructor(
     private locService: LocationService,
-    private disasterService: DisasterService
+    private disasterService: DisasterService,
+    private zone: NgZone
   ) {}
 
   async ngAfterViewInit() {
-    const position = this.locService.getCurrent();
-    const disasters = this.disasterService.getReponse()?.features;
+    setTimeout(() => {
+      const position = this.locService.getCurrent();
+      const disasters = this.disasterService.getReponse()?.features;
 
-    if (!disasters) return;
+      if (!disasters) return;
 
-    this.layers = [
-      L.marker([position.lat, position.lon]).bindPopup('You are HERE'),
-      ...disasters.map((disaster) =>
-        L.marker(
-          [disaster.geometry.coordinates[1], disaster.geometry.coordinates[0]],
-          {
-            icon: L.icon({
-              iconUrl: disaster.properties.icon,
-            }),
-          }
-        ).bindPopup(disaster.properties.name)
-      ),
-    ];
+      console.log('hit');
+
+      this.layers = [L.marker([position.lat, position.lon]).bindPopup('HERE')];
+
+      for (let i = 0; i < disasters.length; i++) {
+        const disaster = disasters[i];
+
+        if (
+          !isNaN(disaster.geometry.coordinates[1]) &&
+          !isNaN(disaster.geometry.coordinates[0])
+        )
+          this.layers.push(
+            L.marker(
+              [
+                disaster.geometry.coordinates[1],
+                disaster.geometry.coordinates[0],
+              ],
+              {
+                icon: L.icon({
+                  iconUrl: disaster.properties.icon,
+                }),
+              }
+            ).bindPopup(disaster.properties.name)
+          );
+      }
+    });
 
     console.log(this.layers);
   }

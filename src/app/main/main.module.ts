@@ -12,9 +12,18 @@ import { LocationService } from './services/location.service';
 import { ConstantsService } from './services/constants.service';
 import { MainBaseComponent } from './main-base.component';
 import { EmergencyKitComponent } from './components/emergency-kit/emergency-kit.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { FirstAidComponent } from './components/first-aid/first-aid.component';
 
 @NgModule({
-  declarations: [MainBaseComponent, MapComponent, SosComponent, EmergencyKitComponent],
+  declarations: [
+    MainBaseComponent,
+    MapComponent,
+    SosComponent,
+    EmergencyKitComponent,
+    ContactComponent,
+    FirstAidComponent,
+  ],
   providers: [
     DisasterService,
     LocationService,

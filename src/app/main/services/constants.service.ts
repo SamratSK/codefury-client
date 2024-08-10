@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ConstantsService {
-  public readonly HERE_API_KEY = 'AIzaSyCiTwHAaubvQ8ARGp8c-3nUMJ_cnS8NoVA';
+  public readonly HERE_API_KEY = 'FrPizsHj5uKhMYi6kNfxgioAtQodgMCS4R770VpNJhY';
 }

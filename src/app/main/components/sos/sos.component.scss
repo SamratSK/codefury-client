@@ -1,4 +1,3 @@
-
 $clr-bg: rgb(168, 28, 28);
 $clr-fg: #fff;
 
@@ -9,11 +8,17 @@ $clr-fg: #fff;
 
   font-size: 150%;
 
-  background-color: $clr-bg;
+  background: linear-gradient(red, $clr-bg);
   color: $clr-fg;
 
   display: grid;
   grid-template-rows: max-content 1fr;
+}
+
+.icons-container {
+  justify-content: space-between;
+
+  padding: 1rem;
 }
 
 .container {
@@ -25,15 +30,11 @@ $clr-fg: #fff;
 
 }
 
-.header-container {
-  gap: 1rem;
-  margin-bottom: 2rem;
-
-  header {
-    font-size: 400%;
-    font-weight: 800;
-    text-align: center;
-  }
+header {
+  font-size: 500%;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .message {
@@ -45,7 +46,7 @@ $clr-fg: #fff;
 
   .loader {
     aspect-ratio: 1;
-    
+
 
     border: 0.15rem solid $clr-fg;
     border-bottom-color: transparent;
@@ -68,12 +69,12 @@ $clr-fg: #fff;
 }
 
 .btn--icon {
-  $sz: 3rem;
+  $sz: 4rem;
 
   width: $sz;
   height: $sz;
 
-  padding: 0.65rem;
+  padding: 1rem;
   justify-self: end;
 
   border-radius: 50%;
@@ -81,15 +82,6 @@ $clr-fg: #fff;
 
   &:hover {
     background-color: darken($clr-bg, 10%);
-  }
-
-  &.audio {
-    $sz: 4rem;
-
-    width: $sz;
-    height: $sz;
-
-    padding: 1rem;
   }
 
   svg {

@@ -29,11 +29,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/leaflet/dist/leaflet.css"
+              "node_modules/leaflet/dist/leaflet.css",
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/leaflet/dist/leaflet.js"

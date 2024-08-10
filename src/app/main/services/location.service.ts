@@ -15,14 +15,14 @@ export class LocationService {
   private readonly HERE_API_KEY_TEMPLATE = '<API_KEY>';
 
   private readonly GEO_URL = 'https://get.geojs.io/v1/ip/geo.json';
-  private readonly SEARCH_API = `https://discover.search.hereapi.com/v1/discover?at=<${this.LAT},${this.LON}&q=emergency%20hospital&limit=10&apikey=${this.HERE_API_KEY_TEMPLATE}`;
+  private readonly SEARCH_API = `https://discover.search.hereapi.com/v1/discover?at=${this.LAT},${this.LON}&q=emergency%20hospital&limit=10&apikey=${this.HERE_API_KEY_TEMPLATE}`;
 
   private location: { lat: number; lon: number } | null = null;
   private emergency_hospitals: Place[] = [];
 
   async init() {
     await this._getCurrentLocation();
-    if (this.location) this._getEmergencyHospitals(this.location);
+    // if (this.location) this._getEmergencyHospitals(this.location);
   }
 
   getCurrent(): { lat: number; lon: number } {
