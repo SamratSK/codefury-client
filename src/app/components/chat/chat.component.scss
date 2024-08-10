@@ -1,0 +1,51 @@
+@use "../../../assets/styles/vars" as vars;
+
+$chat-size: 2rem;
+$chat-padding: 1rem;
+
+:host {
+  display: contents;
+}
+
+.btn.chat {
+  position: fixed;
+  right: $chat-padding;
+  bottom: $chat-padding;
+
+  //TODO: REMOVE
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: $chat-size;
+  height: $chat-size;
+}
+
+dialog {
+  display: none;
+
+  &[open] {
+    display: flex;
+  }
+
+}
+
+.chat-window {
+  .message {
+    $bdr-rad: 0.5rem;
+
+    padding: 0.5rem 0.75rem;
+    background-color: lightcyan;
+
+    &.me {
+      background-color: cyan;
+      border-radius: $bdr-rad $bdr-rad 0 $bdr-rad;
+    }
+
+    &.govt {
+
+      border-radius: $bdr-rad $bdr-rad $bdr-rad 0;
+    }
+  }
+}

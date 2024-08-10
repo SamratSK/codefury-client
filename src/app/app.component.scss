@@ -20,6 +20,10 @@ nav {
 
   background-color: vars.$clr-bg-dark;
 
+  .container {
+    height: 100%;
+  }
+
   header {
     font-size: 120%;
     font-weight: bold;

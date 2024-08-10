@@ -1,0 +1,19 @@
+<button class="btn btn--primary chat" (click)="dialog.showModal()">C</button>
+<dialog class="flx flx--v" #dialog>
+  <div class="chat-window flx flx--v">
+    @for (chat of chats; track $index) {
+    <div class="message {{ chat.sender == 'me' ? 'me' : 'govt' }}">
+      {{ chat.message }}
+    </div>
+    }
+  </div>
+  <div class="message">
+    <div class="message me flx flx--v">
+      @for (action of actions; track $index) {
+      <button class="btn btn--blank" (click)="action.action()">
+        {{ action.message }}
+      </button>
+      }
+    </div>
+  </div>
+</dialog>
