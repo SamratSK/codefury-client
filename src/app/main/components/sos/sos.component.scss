@@ -1,0 +1,111 @@
+
+$clr-bg: rgb(168, 28, 28);
+$clr-fg: #fff;
+
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+
+  font-size: 150%;
+
+  background-color: $clr-bg;
+  color: $clr-fg;
+
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.container {
+  align-self: center;
+  justify-self: center;
+  width: unset;
+
+  gap: 0.5rem;
+
+}
+
+.header-container {
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  header {
+    font-size: 400%;
+    font-weight: 800;
+    text-align: center;
+  }
+}
+
+.message {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content max-content;
+
+  gap: 1rem 0.75rem;
+
+  .loader {
+    aspect-ratio: 1;
+    
+
+    border: 0.15rem solid $clr-fg;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+  }
+
+  svg {
+    aspect-ratio: 1;
+    height: 100%;
+
+    fill: $clr-fg;
+  }
+
+  .strong {
+    grid-column: 2;
+    font-weight: 800;
+    font-size: 90%;
+  }
+}
+
+.btn--icon {
+  $sz: 3rem;
+
+  width: $sz;
+  height: $sz;
+
+  padding: 0.65rem;
+  justify-self: end;
+
+  border-radius: 50%;
+  background-color: $clr-bg;
+
+  &:hover {
+    background-color: darken($clr-bg, 10%);
+  }
+
+  &.audio {
+    $sz: 4rem;
+
+    width: $sz;
+    height: $sz;
+
+    padding: 1rem;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    fill: $clr-fg;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

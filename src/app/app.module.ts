@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MapComponent } from './components/map/map.component';
 
-import { provideHttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { DisasterService } from './services/disaster.service';
+import { MainModule } from './main/main.module';
 
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { SosComponent } from './components/sos/sos.component';
-import { ChatComponent } from './components/chat/chat.component';
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
+
 @NgModule({
-  declarations: [AppComponent, MapComponent, SosComponent, ChatComponent], // Declare your components here
-  imports: [BrowserModule, LeafletModule],
-  providers: [DisasterService, provideHttpClient()], // Add your services here
+  declarations: [AppComponent], // Declare your components here
+  imports: [BrowserModule, MainModule, RouterModule.forRoot(routes)],
   bootstrap: [AppComponent], // Bootstrap the root component
 })
 export class AppModule {}

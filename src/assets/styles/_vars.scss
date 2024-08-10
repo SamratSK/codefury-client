@@ -1,40 +1,23 @@
-$clr-bg: #F7F7F7; /* A very light gray for a clean and neutral background */
-$clr-fg: #333333; /* A dark charcoal gray for strong text contrast */
-$clr-primary: #8A2BE2; /* A rich electric violet for primary actions */
-$clr-secondary: rgba(138, 43, 226, 0.2); /* A lighter, translucent violet for secondary elements */
-$clr-accent: #FF4500; /* A bold orange-red for accentuating important elements */
+$clr-bg-gradient-1: #d3e4c5;
+$clr-bg-gradient-2: #7f9686;
 
-$clr-accent: #ff2600;
+$clr-fg: #031833;
 
-$clr-bg-dark: darken($clr-bg, 20%);
-$clr-border: darken($clr-primary, 10%);
-$clr-outline: rgba(102, 167, 67, 0.25);
-$clr-secondary-outline: rgba(155, 254, 102, 0.25);
+// $clr-bg: #F7F7F7; /* A very light gray for a clean and neutral background */
+// $clr-fg: #333333; /* A dark charcoal gray for strong text contrast */
+// $clr-primary: #8A2BE2; /* A rich electric violet for primary actions */
+// $clr-secondary: rgba(138, 43, 226, 0.2); /* A lighter, translucent violet for secondary elements */
+// $clr-accent: #FF4500; /* A bold orange-red for accentuating important elements */
 
-$clr-selection: rgba(155, 254, 102, 0.25);
+// $clr-accent: #ff2600;
+
+// $clr-bg-dark: darken($clr-bg, 20%);
+// $clr-border: darken($clr-primary, 10%);
+// $clr-outline: rgba(102, 167, 67, 0.25);
+// $clr-secondary-outline: rgba(155, 254, 102, 0.25);
+
+// $clr-selection: rgba(155, 254, 102, 0.25);
 
 $dur-small: 0.2s;
 
 $header-height: 4.5rem;
-
-:root {
-  // --text: #{$text};
-  // --background: #{$background};
-  // --primary-button: #{$primary-button};
-  // --secondary-button: #{$secondary-button};
-  // --accent: #{$accent};
-  // --secondary-button: #0b1e0e;
-
-  // --selection: #{transparentize($accent, 0.5)};
-  // --border: #{lighten($background, 15%)};
-  // --menu: #{lighten($background, 5%)};
-  // --outline: #{lighten($background, 20%)};
-
-  // --dur: 0.2s;
-
-  // --z-1: 1;
-  // --z-2: 2;
-  // --z-3: 3;
-
-  // --header-height: #{$headerHeight};
-}

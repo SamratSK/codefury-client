@@ -1,0 +1,60 @@
+@use "../../assets/styles/vars" as vars;
+
+:host {
+  display: contents;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 3rem;
+  gap: 3rem;
+  padding: 0 2rem;
+
+  $btn-colors: #68959a, #68959a, #68959a, #7ca3a4, #7ca3a4, #de5043;
+
+  @for $i from 1 through length($btn-colors) {
+    $col: nth($btn-colors, $i);
+
+    .btn--#{$i} {
+      background: $col;
+    }
+  }
+
+  .btn {
+    color: #fff;
+    border-radius: 50%;
+    width: clamp(3rem, 100vmax, 9.75rem);
+    aspect-ratio: 1;
+
+  }
+
+  .top,
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .sos {
+    height: 50vh;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background-color: vars.$clr-bg-gradient-2;
+    grid-column: span 2;
+  }
+
+  .buttons.section {
+    gap: 2rem;
+    align-content: center;
+  }
+}
+
+.byline {
+  font-size: 210%;
+  font-weight: 600;
+  z-index: 1;
+  text-align: center;
+}

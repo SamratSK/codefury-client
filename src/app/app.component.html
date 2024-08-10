@@ -1,8 +1,10 @@
 <nav>
   <div class="container flx flx--ac">
     <a class="link" href=".">
-      <header>ReliefNest</header>
-      <span></span>
+      <header>
+        <span>Relief</span>
+        <span>Nest</span>
+      </header>
     </a>
     <div class="spacer"></div>
     <div class="profile"></div>
@@ -11,8 +13,10 @@
 <div class="header-spacer"></div>
 
 <main class="flx flx--v">
-  <ng-sos></ng-sos>
-  <ng-map></ng-map>
-  <footer></footer>
-  <ng-chat></ng-chat>
+  <router-outlet></router-outlet>
 </main>
+
+
+<footer>
+  Copyright
+</footer>

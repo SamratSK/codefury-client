@@ -5,8 +5,8 @@
 }
 
 :root {
-  background-color: vars.$clr-bg;
   color: vars.$clr-fg;
+  background: linear-gradient(0deg, vars.$clr-bg-gradient-1, vars.$clr-bg-gradient-2);
   
   font-family: 'Inter', sans-serif;
   font-size: 16px;

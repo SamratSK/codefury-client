@@ -18,20 +18,21 @@ nav {
   left: 0;
   right: 0;
 
-  background-color: vars.$clr-bg-dark;
+  background-color: red;
 
   .container {
     height: 100%;
   }
 
   header {
-    font-size: 120%;
+    font-size: 180%;
+    text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 0.1rem;
   }
 }
 
-main {
-  ng-map {
-    max-height: 60vh;
-  }
+footer {
+  background-color: red;
 }
+
