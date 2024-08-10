@@ -18,23 +18,16 @@ nav {
   left: 0;
   right: 0;
 
-  justify-content: space-between;
-}
+  background-color: vars.$clr-bg-dark;
 
-main {
-  padding: 1rem;
-  gap: 2rem;
-}
-
-.section {
   header {
     font-size: 120%;
     font-weight: bold;
-    margin-bottom: 0.75rem;
   }
+}
 
-  .input[type='text'],
-  select.input {
-    width: 240px;
+main {
+  ng-map {
+    max-height: 60vh;
   }
 }

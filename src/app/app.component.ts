@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlideService } from './services/glide.service';
 
 @Component({
   selector: 'ng-root',
@@ -8,8 +7,6 @@ import { GlideService } from './services/glide.service';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-
-  constructor(private glideService: GlideService) {}
 
   ngOnInit(): void {}
 

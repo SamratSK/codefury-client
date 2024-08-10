@@ -1,12 +1,8 @@
-.flx{
+.flx {
   display: flex;
 
   &--v {
     flex-direction: column;
-  }
-
-  &--1 {
-    flex: 1;
   }
 
   &--c,
@@ -18,4 +14,9 @@
   &--jc {
     justify-content: center;
   }
+}
+
+.spacer,
+.flx--1 {
+  flex: 1;
 }
