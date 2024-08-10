@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { GlideService } from './services/glide.service';
 
 @Component({
   selector: 'ng-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'client';
+
+  constructor(private glideService: GlideService) {}
+
+  ngOnInit(): void {}
+
+  click() {
+  }
 }
