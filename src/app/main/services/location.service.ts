@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { ConstantsService } from './constants.service';
-import { Place } from '../interfaces/places.interface';
+import { AppService } from './app.service';
+import { Place, PlacesReponse } from '../interfaces/places.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocationService {
-  constructor(private http: HttpClient, private constants: ConstantsService) {}
+  constructor(private http: HttpClient, private app: AppService) {}
 
   private readonly LAT = '<LAT>';
   private readonly LON = '<LON>';
@@ -22,7 +22,7 @@ export class LocationService {
 
   async init() {
     await this._getCurrentLocation();
-    // if (this.location) this._getEmergencyHospitals(this.location);
+    if (this.location) await this._getEmergencyHospitals(this.location);
   }
 
   getCurrent(): { lat: number; lon: number } {
@@ -51,16 +51,16 @@ export class LocationService {
   private async _getEmergencyHospitals(loc: { lat: number; lon: number }) {
     try {
       const data = await lastValueFrom(
-        this.http.get<any>(
+        this.http.get<PlacesReponse>(
           this.SEARCH_API.replace(this.LAT, loc.lat.toString())
             .replace(this.LON, loc.lon.toString())
-            .replace(this.HERE_API_KEY_TEMPLATE, this.constants.HERE_API_KEY)
+            .replace(this.HERE_API_KEY_TEMPLATE, this.app.HERE_API_KEY)
         )
       );
-      this.location = {
-        lat: Number(data.latitude),
-        lon: Number(data.longitude),
-      };
+      this.emergency_hospitals = data.items;
+
+      console.log('LOADED');
+      
     } catch (error) {
       console.error('Error fetching geolocation data:', error);
     }

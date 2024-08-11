@@ -34,10 +34,10 @@
   <div class="section buttons flx flx--v">
     <div class="top">
       <div class="circle-links">
-        <button class="btn btn--blank btn--1">
+        <button class="btn btn--blank btn--1" (click)="select('Find Shelters')">
           <img src="../assets/images/shelter.svg" width="60" alt="" />
         </button>
-        <span>Find Shelter</span>
+        <span>Find Shelters</span>
       </div>
 
       <div class="sos">
@@ -68,7 +68,13 @@
               class="st0-sos"
             />
           </g>
-          <foreignObject x="57.2" y="14.7" width="144.8" height="144.8" style="overflow: visible">
+          <foreignObject
+            x="57.2"
+            y="14.7"
+            width="144.8"
+            height="144.8"
+            style="overflow: visible"
+          >
             <div class="clickable"></div>
           </foreignObject>
           <!-- <circle cx="129.6" cy="87.1" r="72.4" class="st1" /> -->
@@ -153,13 +159,14 @@
   <div class="content">
     @if(selected === 'First Aid') {
     <ng-first-aid></ng-first-aid>
-
     } @else if (selected === 'Emergency Kit') {
     <ng-emergency-kit></ng-emergency-kit>
     } @else if (selected === 'Contact Us') {
     <ng-contact></ng-contact>
     } @else if (selected === 'Disaster Reports') {
-    <ng-map></ng-map>
+    <ng-disaster-report></ng-disaster-report>
+    } @else if (selected === 'Find Shelters') {
+    <ng-shelters></ng-shelters>
     }
   </div>
   <div class="footer"></div>

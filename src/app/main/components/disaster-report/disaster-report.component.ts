@@ -1,14 +1,15 @@
-import { AfterViewInit, Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { LocationService } from '../../services/location.service';
 import { DisasterService } from '../../services/disaster.service';
+import { AppService } from '../../services/app.service';
 
 @Component({
-  selector: 'ng-map',
-  templateUrl: './map.component.html',
-  styleUrl: './map.component.scss',
+  selector: 'ng-disaster-report',
+  templateUrl: './disaster-report.component.html',
+  styleUrl: './disaster-report.component.scss',
 })
-export class MapComponent implements AfterViewInit {
+export class DisasterReportComponent {
   options = {
     layers: [
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -23,21 +24,21 @@ export class MapComponent implements AfterViewInit {
   layers: L.Marker[] = [];
 
   constructor(
-    private locService: LocationService,
-    private disasterService: DisasterService,
-    private zone: NgZone
-  ) {}
+    locService: LocationService,
+    disasterService: DisasterService,
+    app: AppService
+  ) {
+    app.dataLoaded.subscribe(async (loaded) => {
+      if (!loaded) return;
 
-  async ngAfterViewInit() {
-    setTimeout(() => {
-      const position = this.locService.getCurrent();
-      const disasters = this.disasterService.getReponse()?.features;
+      const position = locService.getCurrent();
+      const disasters = disasterService.getReponse()?.features;
 
       if (!disasters) return;
 
-      console.log('hit');
-
-      this.layers = [L.marker([position.lat, position.lon]).bindPopup('HERE')];
+      this.layers = [
+        L.marker([position.lat, position.lon]).bindPopup('You are here'),
+      ];
 
       for (let i = 0; i < disasters.length; i++) {
         const disaster = disasters[i];
@@ -61,7 +62,5 @@ export class MapComponent implements AfterViewInit {
           );
       }
     });
-
-    console.log(this.layers);
   }
 }
