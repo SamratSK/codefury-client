@@ -1,9 +1,0 @@
-<div class="left flx flx--v">
-  @for (emergency of emergencies; track $index) {
-    <button class="btn btn--blank" (click)="navigate(emergency.route)">{{emergency.name}}</button>
-  }
-</div>
-
-<div class="right flx--1 flx flx--v">
-  <router-outlet></router-outlet>
-</div>

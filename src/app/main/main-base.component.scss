@@ -268,14 +268,14 @@ dialog {
 
 
   box-shadow:
-    0 0 3px 2px rgba(255, 255, 255, 1), // White (closest to the edge)
-    0 0 6px 4px rgba(255, 255, 0, 0.9), // Yellow
-    0 0 8px 6px rgba(255, 165, 0, 0.8), // Orange
-    0 0 10px 8px rgba(255, 69, 0, 0.7), // Red-orange
-    0 0 12px 10px rgba(139, 0, 0, 0.6); // Dark red
+    0 0 3px 2px rgba(255, 255, 255, 0.5), // White (closest to the edge)
+    0 0 6px 4px rgba(255, 255, 0, 0.45), // Yellow
+    0 0 8px 6px rgba(255, 165, 0, 0.4), // Orange
+    0 0 10px 8px rgba(255, 69, 0, 0.35), // Red-orange
+    0 0 12px 10px rgba(139, 0, 0, 0.3); // Dark red
 
   &:hover {
-    animation: glow-animation 1.5s infinite alternate;
+    animation: glow-animation .3s infinite alternate;
   }
 }
 

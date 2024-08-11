@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+
+  .btn {
+    background-color: #3c2957;
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.3rem;
+    color: #fff;
+
+  }
+}

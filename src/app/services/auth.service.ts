@@ -33,7 +33,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    this.currentUser = await firstValueFrom(
+    return await firstValueFrom(
       this.http.post<User>(this.SIGNUP_URL, JSON.stringify(data), { headers })
     );
   }

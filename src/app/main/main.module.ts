@@ -15,6 +15,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FirstAidComponent } from './components/first-aid/first-aid.component';
 import { DisasterReportComponent } from './components/disaster-report/disaster-report.component';
 import { SheltersComponent } from './components/shelters/shelters.component';
+import { CycloneComponent } from './components/education/cyclone/cyclone.component';
+import { EarthquakeComponent } from './components/education/earthquake/earthquake.component';
+import { TsunamiComponent } from './components/education/tsunami/tsunami.component';
+import { LandslideComponent } from './components/education/landslide/landslide.component';
+import { FloodComponent } from './components/education/flood/flood.component';
+import { EmergencyBaseComponent } from './components/education/emergency-base.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { SheltersComponent } from './components/shelters/shelters.component';
     EmergencyKitComponent,
     ContactComponent,
     FirstAidComponent,
-    SheltersComponent
+    SheltersComponent,
+    CycloneComponent,
+    EarthquakeComponent,
+    FloodComponent,
+    LandslideComponent,
+    TsunamiComponent,
+    EmergencyBaseComponent
   ],
   providers: [
     DisasterService,

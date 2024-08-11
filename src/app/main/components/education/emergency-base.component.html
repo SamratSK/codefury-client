@@ -1,0 +1,19 @@
+<div class="choices">
+  <button class="btn btn--blank" (click)="select('Cyclone')">Cyclone</button>
+  <button class="btn btn--blank" (click)="select('Earthquake')">Earthquake</button>
+  <button class="btn btn--blank" (click)="select('Flood')">Flood</button>
+  <button class="btn btn--blank" (click)="select('Landslide')">Landslide</button>
+  <button class="btn btn--blank" (click)="select('Tsunami')">Tsunami</button>
+</div>
+
+@if(selected === 'Cyclone') {
+  <ng-cyclone></ng-cyclone>
+} @else if(selected === 'Earthquake') {
+  <ng-earthquake></ng-earthquake>
+} @else if(selected === 'Flood') {
+  <ng-flood></ng-flood>
+} @else if(selected === 'Landslide') {
+  <ng-landslide></ng-landslide>
+} @else if(selected === 'Tsunami') {
+  <ng-tsunami></ng-tsunami>
+}
