@@ -68,5 +68,5 @@ export interface SeverityData {
 
 export interface SOS {
   location: {lat: number; lon: number};
-  user: User | null
+  userId: number | null
 }

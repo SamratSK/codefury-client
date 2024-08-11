@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LocationService } from './services/location.service';
 import { DisasterService } from './services/disaster.service';
 import { AppService } from './services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ng-main-base',
@@ -23,7 +24,8 @@ export class MainBaseComponent implements OnInit {
   constructor(
     private locService: LocationService,
     private disasterService: DisasterService,
-    private app: AppService
+    private app: AppService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -35,5 +37,9 @@ export class MainBaseComponent implements OnInit {
   select(value: string) {
     this.selected = value;
     this.dialog.nativeElement.showModal();
+  }
+
+  sos() {
+    this.router.navigate(['/sos']);
   }
 }

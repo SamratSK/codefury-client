@@ -36,16 +36,15 @@ export class LocationService {
   
 
   private async _getCurrentLocation() {
-    // try {
-    //   const data = await lastValueFrom(this.http.get<any>(this.GEO_URL));
-    //   this.location = {
-    //     lat: Number(data.latitude),
-    //     lon: Number(data.longitude),
-    //   };
-    // } catch (error) {
-    //   console.error('Error fetching geolocation data:', error);
-    // }
-    this.location = { lat: 12.9634, lon: 77.5855 };
+    try {
+      const data = await lastValueFrom(this.http.get<any>(this.GEO_URL));
+      this.location = {
+        lat: Number(data.latitude),
+        lon: Number(data.longitude),
+      };
+    } catch (error) {
+      console.error('Error fetching geolocation data:', error);
+    }
   }
 
   private async _getEmergencyHospitals(loc: { lat: number; lon: number }) {

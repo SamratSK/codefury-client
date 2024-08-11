@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ng-signup',
@@ -12,7 +13,11 @@ export class SignupComponent {
   responseMessage: string | null = null;
   isSuccess: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -32,7 +37,10 @@ export class SignupComponent {
         this.responseMessage = 'Signup successful!';
         this.isSuccess = true;
         console.log(user);
-        
+
+        setTimeout(() => {
+          this.router.navigate(['/auth/signup'])
+        })
       } catch (error) {
         this.isSuccess = false;
         this.responseMessage = 'Signup failed. Please try again.';

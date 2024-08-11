@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ng-login',
@@ -12,7 +13,11 @@ export class LoginComponent {
   responseMessage: string | null = null;
   isSuccess: boolean = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -23,15 +28,19 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       try {
-        const user = await this.authService.login({ email, password });
-        console.log('Login successful', user);
-        // Redirect or perform any other action on successful login
+        await this.authService.login({ email, password });
+        this.responseMessage = 'Login successful';
+        this.isSuccess = true;
+
+        this.router.navigate(['/']);
       } catch (error) {
-        console.error('Login failed', error);
+        this.responseMessage = 'Login failed';
+        this.isSuccess = false;
         // Handle login error
       }
     } else {
-      console.error('Form is invalid');
+      this.responseMessage = 'Form is invalid';
+      this.isSuccess = false;
       // Handle form invalid case
     }
   }

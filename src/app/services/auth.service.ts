@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginData, SignupData, User } from '../interfaces/auth.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +24,10 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    this.currentUser = await firstValueFrom(
-      this.http.post<User>(this.LOGIN_URL, JSON.stringify(data), { headers })
+    this.currentUser = await lastValueFrom(
+      this.http.post<User>(this.LOGIN_URL, JSON.stringify(data), {
+        headers,
+      })
     );
   }
 
@@ -33,8 +35,10 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return await firstValueFrom(
-      this.http.post<User>(this.SIGNUP_URL, JSON.stringify(data), { headers })
+    return await lastValueFrom(
+      this.http.post<User>(this.SIGNUP_URL, JSON.stringify(data), {
+        headers,
+      })
     );
   }
 }
