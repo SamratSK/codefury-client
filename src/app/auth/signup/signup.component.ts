@@ -39,8 +39,8 @@ export class SignupComponent {
         console.log(user);
 
         setTimeout(() => {
-          this.router.navigate(['/auth/signup'])
-        })
+          this.router.navigate(['/auth/login'])
+        }, 3000);
       } catch (error) {
         this.isSuccess = false;
         this.responseMessage = 'Signup failed. Please try again.';
