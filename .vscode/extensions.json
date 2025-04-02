@@ -1,35 +1,4 @@
 {
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
-  "recommendations": ["angular.ng-template"]
+  "recommendations": 
 }
-def num_islands(grid):
-    if not grid:
-        return 0
-    
-    rows, cols = len(grid), len(grid[0])
-    visited = set()
-    
-    def dfs(r, c):
-        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] == 0 or (r, c) in visited:
-            return
-        visited.add((r, c))
-        for dr, dc in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-            dfs(r + dr, c + dc)
-    
-    island_count = 0
-    for r in range(rows):
-        for c in range(cols):
-            if grid[r][c] == 1 and (r, c) not in visited:
-                dfs(r, c)
-                island_count += 1
-    
-    return island_count
-
-grid = [
-    [1, 1, 0, 0, 0],
-    [1, 1, 0, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 0, 1, 1]
-]
-
-print(num_islands(grid))
